@@ -33,7 +33,7 @@
             <ul id="dynamic_books">
             </ul>
         </div>
-        <div id="authors">
+        <div id="authors"> 
             <h4>Author</h4>
             <ul id="dynamic_authors">
             </ul>
@@ -47,6 +47,11 @@
     </section>
     <section class="edit">
         <h2>Edit Book</h2>
+        <input id="book_mod" type="text" value="" placeholder="Edit Book" onkeyup="validate_book()">
+            <input id="author_mod" type="text" value="" placeholder="Edit Author" onkeyup="validate_book()">
+            <select name="List" id="author_list" class="mini_list"></select>
+            <input id="btn_edit" type="button" value="Edit" onclick="edit_book()" disabled>
+            <input id="book_id" type="hidden"  value="" />
     </section>
     <script src="app.js" type="text/javascript"></script>
 </body>

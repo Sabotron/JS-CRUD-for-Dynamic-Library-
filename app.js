@@ -35,8 +35,8 @@ function get_books() {
         library_db = [];
     }
     const new_book = {
-        Id: counter, 
-        Name: book, 
+        Id: counter,
+        Name: book,
         Writer: author
     }
     library_db.push(new_book);
@@ -55,6 +55,7 @@ function set_book() {
     id_list.innerHTML = "";
     book_list.innerHTML = "";
     author_list.innerHTML = "";
+    action_list.innerHTML = "";
     const books = JSON.parse(localStorage.getItem("library"));
     console.log(books);
     if (books) {
@@ -67,8 +68,8 @@ function set_book() {
             book_li.textContent = books[i].Name;
             author_li.textContent = books[i].Writer;
             let id = books[i].Id;
-            action_li.innerHTML = '<a onclick="edit(id)" class="edit_book">Edit</a> | ' + 
-            '<a onclick="erase(id)" class="delete_book" ">Delete</a> ';
+            action_li.innerHTML = '<a onclick="edit(' + id + ')" >Edit</a>' + '  |  ' +
+                '<a onclick="erase(' + id + ')" >Delete</a>';
             id_list.appendChild(id_li);
             book_list.appendChild(book_li);
             author_list.appendChild(author_li);
@@ -78,20 +79,45 @@ function set_book() {
     consecutive();
 }
 /*-------------------------------------------------------------------------*/
-function edit(id)
-{
-    console.log(id);
-    console.log("Se armó esta vara", id);
-
+function edit(id) {
+    let library_db = JSON.parse(localStorage.getItem("library"));
+    var book_id = document.getElementById("book_id");
+    var name = document.getElementById("book_mod");
+    var author = document.getElementById("author_mod");
+    var btn = document.getElementById("btn_edit");
+    name.value = "";
+    author.value = "";
+    for (i = 0; i < library_db.length; i++) {
+        if (library_db[i].Id == id) {
+            book_id.value = id;
+            name.value = library_db[i].Name;
+            author.value = library_db[i].Writer;
+            btn.disabled = false;
+            break;
+        } else {
+            btn.disabled = true;
+        }
+    }
 }
 /*-------------------------------------------------------------------------*/
 
-function erase(id)
-{
-    console.log(id);
-    console.log("Se prendió esta carajada" + id);
-
+function edit_book() {
+    let library_db = JSON.parse(localStorage.getItem("library"));
+    var book_id = document.getElementById("book_id").value;
+    var name = document.getElementById("book_mod").value;
+    var author = document.getElementById("author_mod").value;
+    var btn = document.getElementById("btn_edit");
+    for (i = 0; i < library_db.length; i++) {
+        if (library_db[i].Id == book_id) {
+            library_db[i].Name = name;
+            library_db[i].Writer = author;
+            btn.disabled = true;
+            break;
+        }
+    }
+    localStorage.setItem("library", JSON.stringify(library_db));
+    set_book();
 }
-/*--
+
 /*-------------------------------------------------------------------------*/
 /*-------------------------------------------------------------------------*/
