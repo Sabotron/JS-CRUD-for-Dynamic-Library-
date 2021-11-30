@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Workshop_9</title>
+</head>
+<body onload="set_book()">
+    <header>
+        <h1>WorkShop#9</h1>
+    </header>
+    <section class="new_book">
+        <div class="add_book">
+            <h2>Add New Book</h2>
+            <input id="book_input" type="text" value="" placeholder="Book" onkeyup="validate_book()">
+            <input id="author_input" type="text" value="" placeholder="Author" onkeyup="validate_book()">
+            <select name="List" id="author_list" class="mini_list"></select>
+            <input id="btn_add" type="button" value="Add" onclick="get_books()" disabled>
+        </div>
+    </section>
+    <section class="book_list">
+        <h2>Library</h2>
+        <div class="library">
+        <div id="ids">
+            <h4>ID</h4>
+            <ul id="dynamic_ids">
+            </ul>
+        </div>
+        <div id="books">
+            <h4>Name</h4>
+            <ul id="dynamic_books">
+            </ul>
+        </div>
+        <div id="authors">
+            <h4>Author</h4>
+            <ul id="dynamic_authors">
+            </ul>
+        </div>
+        <div id="actions">
+            <h4>Actions</h4>
+            <ul id="dynamic_actions">
+            </ul>
+        </div>
+    </div>
+    </section>
+    <section class="edit">
+        <h2>Edit Book</h2>
+    </section>
+    <script src="app.js" type="text/javascript"></script>
+</body>
+</html>

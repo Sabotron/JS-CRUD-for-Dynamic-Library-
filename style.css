@@ -1,0 +1,91 @@
+body
+{
+background: linear-gradient(90deg,
+     rgba(2,0,36,1) 0%,
+     rgba(9,9,121,1) 35%,
+     rgba(0,212,255,1) 100%);
+}
+/*-------------------------------------------------------------------------*/
+h1
+{
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    text-align: center;
+    color: white;
+    font-size: 20px;
+}
+/*-------------------------------------------------------------------------*/
+h2
+{
+    display: block;
+    font-family: 'Times New Roman', Times, serif;
+    text-align: center;
+    color: white;
+    font-size: 18px;
+}
+/*-------------------------------------------------------------------------*/
+h4
+{
+    display: block;
+    font-family: 'Times New Roman', Times, serif;
+    text-align: center;
+    color: white;
+    font-size: 14px;
+}
+
+.new_book, .book_list, .edit
+{   
+    display: block;
+
+    width: 600px;
+    text-align: center;
+    align-items: center;
+    height: auto;
+    padding-bottom: 20px;
+    background-color: rgb(38, 114, 255);
+    margin: auto;
+    border-style: solid;
+    border-color: blueviolet;
+}
+/*-------------------------------------------------------------------------*/
+
+
+
+
+/*-------------------------------------------------------------------------*/
+.library
+{
+
+    display:flex;
+    justify-content: space-around;
+    height: auto;
+    margin: 0;
+
+}
+/*-------------------------------------------------------------------------*/
+/*-------------------------------------------------------------------------*/
+#dynamic_ids, #dynamic_books, #dynamic_authors, #dynamic_actions
+{
+    padding: 0px;
+    list-style-type: none;
+    text-align: center;
+}
+/*-------------------------------------------------------------------------*/
+#ids
+{
+    width: 40px;
+    padding: 0px;
+}
+/*-------------------------------------------------------------------------*/
+#books
+{
+    width: 165px;
+}
+/*-------------------------------------------------------------------------*/
+#authors
+{
+    width: 145px;
+}
+/*-------------------------------------------------------------------------*/
+/*-------------------------------------------------------------------------*/
+/*-------------------------------------------------------------------------*/
+/*-------------------------------------------------------------------------*/
