@@ -77,8 +77,32 @@ function set_book() {
         }
     }
     consecutive();
+    get_authors();
 }
 /*-------------------------------------------------------------------------*/
+
+function get_authors() {
+    const select = document.getElementById("author_list");
+    select.innerHTML = "";
+    const books = JSON.parse(localStorage.getItem("library"));
+    if (books) {
+        for (var i = 0; i < books.length; i++) {
+            var option = document.createElement("option");
+            option.textContent = books[i].Writer;
+            select.appendChild(option);
+        }
+    }
+}
+/*-------------------------------------------------------------------------*/
+function set_author() {
+    var select_list = document.getElementById("author_list");
+    var author_name = select_list.options[select_list.selectedIndex].text;
+    var author = document.getElementById("author_input");
+    author.value = author_name;
+    console.log(author_name);
+}
+/*-------------------------------------------------------------------------*/
+
 function edit(id) {
     let library_db = JSON.parse(localStorage.getItem("library"));
     var book_id = document.getElementById("book_id");
@@ -120,4 +144,16 @@ function edit_book() {
 }
 
 /*-------------------------------------------------------------------------*/
+function erase(id)
+{
+    let library_db = JSON.parse(localStorage.getItem("library"));
+    const library_mod = [];
+    for (i = 0; i < library_db.length; i++) {
+        if (library_db[i].Id != id) {
+            library_mod.push(library_db[i]);
+        } 
+    }
+    localStorage.setItem("library", JSON.stringify(library_mod));
+    set_book();
+}
 /*-------------------------------------------------------------------------*/
